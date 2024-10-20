@@ -9,7 +9,7 @@ git clone --recurse-submodules -j8 https://github.com/jamescurtin/Spoons.git
 cd Spoons
 
 bin/install.sh
-pre-commit install
+pre-commit install --install-hooks
 ```
 
 ## Build

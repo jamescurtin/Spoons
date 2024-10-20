@@ -1,0 +1,24 @@
+name: pre-commit
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: "recursive"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: "pip"
+      - run: bin/install.sh
+      - name: Activate virtualenv
+        run: |
+          source venv/bin/activate
+          echo "PATH=${PATH}" >> "${GITHUB_ENV}"
+      - uses: pre-commit/action@v3.0.1
