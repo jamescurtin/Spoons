@@ -1,0 +1,208 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: CameraStatus</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; CameraStatus</h1>
+      <p>Trigger webhooks to enable or disable a status light/monitor/etc. based on
+the computer's camera state.</p>
+<p>Example (assumes you are using <code>SpoonInstall</code> to load spoons):</p>
+
+<pre><code>-- This plugin requires two webhook URLs (e.g. from HomeAssistant) that will
+-- be triggered based on the computer's camera state.
+
+local statusONwebhook = &quot;https://some-webhook.url/on&quot;
+local statusOFFwebhook = &quot;https://some-webhook.url/off&quot;
+
+hs.loadSpoon(&quot;SpoonInstall&quot;)
+SpoonInstall = spoon.SpoonInstall
+SpoonInstall.repos = {
+    default = {
+        url = &quot;https://github.com/Hammerspoon/Spoons&quot;,
+        desc = &quot;Main Hammerspoon Spoon repository&quot;,
+        branch = &quot;master&quot;,
+    },
+    jamescurtin = {
+        url = &quot;https://github.com/jamescurtin/Spoons&quot;,
+        desc = &quot;James Curtin's Spoons&quot;,
+        branch = &quot;master&quot;,
+    },
+}
+
+SpoonInstaller:andUse(&quot;CameraStatus&quot;,
+  {
+      repo = &quot;jamescurtin&quot;,
+      start = true,
+      config = {
+          cameraOnHook = statusONwebhook,
+          cameraOffHook = statusOFFwebhook,
+      }
+  }
+)
+</code></pre>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#cameraOffHook">cameraOffHook</a></li>
+            <li><a href="#cameraOnHook">cameraOnHook</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#checkCameraStatus">checkCameraStatus</a></li>
+            <li><a href="#start">start</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="cameraOffHook">
+            <a name="//apple_ref/cpp/Variable/cameraOffHook" class="dashAnchor"></a>
+            <h5><a href="#cameraOffHook">cameraOffHook</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CameraStatus.cameraOffHook (String)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>A webhook URL that will be used to trigger an event when an attached camera is turned off.</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master//Users/jamescurtin/repos/Spoons/bin/../Source/CameraStatus.spoon/init.lua#L65">/Users/jamescurtin/repos/Spoons/bin/../Source/CameraStatus.spoon/init.lua line 65</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="cameraOnHook">
+            <a name="//apple_ref/cpp/Variable/cameraOnHook" class="dashAnchor"></a>
+            <h5><a href="#cameraOnHook">cameraOnHook</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CameraStatus.cameraOnHook (String)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>A webhook URL that will be used to trigger an event when an attached camera is turned on.</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master//Users/jamescurtin/repos/Spoons/bin/../Source/CameraStatus.spoon/init.lua#L60">/Users/jamescurtin/repos/Spoons/bin/../Source/CameraStatus.spoon/init.lua line 60</a></td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="checkCameraStatus">
+            <a name="//apple_ref/cpp/Method/checkCameraStatus" class="dashAnchor"></a>
+            <h5><a href="#checkCameraStatus">checkCameraStatus</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CameraStatus:checkCameraStatus() -&gt; Self</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Makes a one-time call to check camera state.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>Self</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><p>Makes an empty POST request to the &quot;cameraOnHook&quot; webhook if any camera is enabled.
+Makes an empty POST request to the &quot;cameraOffHook&quot; webhook if no camera is enabled.</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master//Users/jamescurtin/repos/Spoons/bin/../Source/CameraStatus.spoon/init.lua#L95">/Users/jamescurtin/repos/Spoons/bin/../Source/CameraStatus.spoon/init.lua line 95</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="start">
+            <a name="//apple_ref/cpp/Method/start" class="dashAnchor"></a>
+            <h5><a href="#start">start</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CameraStatus:start() -&gt; Self</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Enables the CameraStatus spoon.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>Self</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><p>The spoon uses a camera watcher to poll for camera status.
+Additionally, it will register cameras that are added after the spoon has
+been initialized.
+Calls the &quot;On&quot; webhook if any camera is enabled.
+Calls the &quot;Off&quot; webhook if no camera is enabled.</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master//Users/jamescurtin/repos/Spoons/bin/../Source/CameraStatus.spoon/init.lua#L126">/Users/jamescurtin/repos/Spoons/bin/../Source/CameraStatus.spoon/init.lua line 126</a></td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>

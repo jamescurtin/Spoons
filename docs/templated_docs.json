@@ -1,0 +1,198 @@
+[
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "CameraStatus:checkCameraStatus() -> Self",
+        "def_gfm": "CameraStatus:checkCameraStatus() -&gt; Self",
+        "desc": "Makes a one-time call to check camera state.",
+        "desc_gfm": "<p>Makes a one-time call to check camera state.</p>\n",
+        "doc": "Makes a one-time call to check camera state.\n\nParameters:\n * None\n\nReturns:\n * Self\n\nNotes:\nMakes an empty POST request to the \"cameraOnHook\" webhook if any camera is enabled.\nMakes an empty POST request to the \"cameraOffHook\" webhook if no camera is enabled.",
+        "doc_gfm": "<p>Makes a one-time call to check camera state.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>Self</li>\n</ul>\n<p>Notes:\nMakes an empty POST request to the &quot;cameraOnHook&quot; webhook if any camera is enabled.\nMakes an empty POST request to the &quot;cameraOffHook&quot; webhook if no camera is enabled.</p>\n",
+        "examples": [],
+        "file": "/Users/jamescurtin/repos/Spoons/bin/../Source/CameraStatus.spoon/init.lua",
+        "lineno": "95",
+        "name": "checkCameraStatus",
+        "notes": [
+          "Makes an empty POST request to the \"cameraOnHook\" webhook if any camera is enabled.",
+          "Makes an empty POST request to the \"cameraOffHook\" webhook if no camera is enabled."
+        ],
+        "notes_gfm": "<p>Makes an empty POST request to the &quot;cameraOnHook&quot; webhook if any camera is enabled.\nMakes an empty POST request to the &quot;cameraOffHook&quot; webhook if no camera is enabled.</p>\n",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * Self"
+        ],
+        "returns_gfm": "<ul>\n<li>Self</li>\n</ul>\n",
+        "signature": "CameraStatus:checkCameraStatus() -> Self",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "CameraStatus:start() -> Self",
+        "def_gfm": "CameraStatus:start() -&gt; Self",
+        "desc": "Enables the CameraStatus spoon.",
+        "desc_gfm": "<p>Enables the CameraStatus spoon.</p>\n",
+        "doc": "Enables the CameraStatus spoon.\n\nParameters:\n * None\n\nReturns:\n * Self\n\nNotes:\nThe spoon uses a camera watcher to poll for camera status.\nAdditionally, it will register cameras that are added after the spoon has\nbeen initialized.\nCalls the \"On\" webhook if any camera is enabled.\nCalls the \"Off\" webhook if no camera is enabled.",
+        "doc_gfm": "<p>Enables the CameraStatus spoon.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>Self</li>\n</ul>\n<p>Notes:\nThe spoon uses a camera watcher to poll for camera status.\nAdditionally, it will register cameras that are added after the spoon has\nbeen initialized.\nCalls the &quot;On&quot; webhook if any camera is enabled.\nCalls the &quot;Off&quot; webhook if no camera is enabled.</p>\n",
+        "examples": [],
+        "file": "/Users/jamescurtin/repos/Spoons/bin/../Source/CameraStatus.spoon/init.lua",
+        "lineno": "126",
+        "name": "start",
+        "notes": [
+          "The spoon uses a camera watcher to poll for camera status.",
+          "Additionally, it will register cameras that are added after the spoon has",
+          "been initialized.",
+          "Calls the \"On\" webhook if any camera is enabled.",
+          "Calls the \"Off\" webhook if no camera is enabled."
+        ],
+        "notes_gfm": "<p>The spoon uses a camera watcher to poll for camera status.\nAdditionally, it will register cameras that are added after the spoon has\nbeen initialized.\nCalls the &quot;On&quot; webhook if any camera is enabled.\nCalls the &quot;Off&quot; webhook if no camera is enabled.</p>\n",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * Self"
+        ],
+        "returns_gfm": "<ul>\n<li>Self</li>\n</ul>\n",
+        "signature": "CameraStatus:start() -> Self",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "CameraStatus.cameraOffHook (String)",
+        "def_gfm": "CameraStatus.cameraOffHook (String)",
+        "desc": "A webhook URL that will be used to trigger an event when an attached camera is turned off.",
+        "desc_gfm": "<p>A webhook URL that will be used to trigger an event when an attached camera is turned off.</p>\n",
+        "doc": "A webhook URL that will be used to trigger an event when an attached camera is turned off.",
+        "doc_gfm": "<p>A webhook URL that will be used to trigger an event when an attached camera is turned off.</p>\n",
+        "file": "/Users/jamescurtin/repos/Spoons/bin/../Source/CameraStatus.spoon/init.lua",
+        "lineno": "65",
+        "name": "cameraOffHook",
+        "signature": "CameraStatus.cameraOffHook (String)",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CameraStatus.cameraOnHook (String)",
+        "def_gfm": "CameraStatus.cameraOnHook (String)",
+        "desc": "A webhook URL that will be used to trigger an event when an attached camera is turned on.",
+        "desc_gfm": "<p>A webhook URL that will be used to trigger an event when an attached camera is turned on.</p>\n",
+        "doc": "A webhook URL that will be used to trigger an event when an attached camera is turned on.",
+        "doc_gfm": "<p>A webhook URL that will be used to trigger an event when an attached camera is turned on.</p>\n",
+        "file": "/Users/jamescurtin/repos/Spoons/bin/../Source/CameraStatus.spoon/init.lua",
+        "lineno": "60",
+        "name": "cameraOnHook",
+        "signature": "CameraStatus.cameraOnHook (String)",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Trigger webhooks to enable or disable a status light/monitor/etc. based on",
+    "desc_gfm": "<p>Trigger webhooks to enable or disable a status light/monitor/etc. based on</p>\n",
+    "doc": "Trigger webhooks to enable or disable a status light/monitor/etc. based on\nthe computer's camera state.\n\nExample (assumes you are using `SpoonInstall` to load spoons):\n\n```\n-- This plugin requires two webhook URLs (e.g. from HomeAssistant) that will\n-- be triggered based on the computer's camera state.\n\nlocal statusONwebhook = \"https://some-webhook.url/on\"\nlocal statusOFFwebhook = \"https://some-webhook.url/off\"\n\nhs.loadSpoon(\"SpoonInstall\")\nSpoonInstall = spoon.SpoonInstall\nSpoonInstall.repos = {\n    default = {\n        url = \"https://github.com/Hammerspoon/Spoons\",\n        desc = \"Main Hammerspoon Spoon repository\",\n        branch = \"master\",\n    },\n    jamescurtin = {\n        url = \"https://github.com/jamescurtin/Spoons\",\n        desc = \"James Curtin's Spoons\",\n        branch = \"master\",\n    },\n}\n\nSpoonInstaller:andUse(\"CameraStatus\",\n  {\n      repo = \"jamescurtin\",\n      start = true,\n      config = {\n          cameraOnHook = statusONwebhook,\n          cameraOffHook = statusOFFwebhook,\n      }\n  }\n)\n```",
+    "doc_gfm": "<p>Trigger webhooks to enable or disable a status light/monitor/etc. based on\nthe computer's camera state.</p>\n<p>Example (assumes you are using <code>SpoonInstall</code> to load spoons):</p>\n\n<pre><code>-- This plugin requires two webhook URLs (e.g. from HomeAssistant) that will\n-- be triggered based on the computer's camera state.\n\nlocal statusONwebhook = &quot;https://some-webhook.url/on&quot;\nlocal statusOFFwebhook = &quot;https://some-webhook.url/off&quot;\n\nhs.loadSpoon(&quot;SpoonInstall&quot;)\nSpoonInstall = spoon.SpoonInstall\nSpoonInstall.repos = {\n    default = {\n        url = &quot;https://github.com/Hammerspoon/Spoons&quot;,\n        desc = &quot;Main Hammerspoon Spoon repository&quot;,\n        branch = &quot;master&quot;,\n    },\n    jamescurtin = {\n        url = &quot;https://github.com/jamescurtin/Spoons&quot;,\n        desc = &quot;James Curtin's Spoons&quot;,\n        branch = &quot;master&quot;,\n    },\n}\n\nSpoonInstaller:andUse(&quot;CameraStatus&quot;,\n  {\n      repo = &quot;jamescurtin&quot;,\n      start = true,\n      config = {\n          cameraOnHook = statusONwebhook,\n          cameraOffHook = statusOFFwebhook,\n      }\n  }\n)\n</code></pre>\n",
+    "items": [
+      {
+        "def": "CameraStatus.cameraOffHook (String)",
+        "def_gfm": "CameraStatus.cameraOffHook (String)",
+        "desc": "A webhook URL that will be used to trigger an event when an attached camera is turned off.",
+        "desc_gfm": "<p>A webhook URL that will be used to trigger an event when an attached camera is turned off.</p>\n",
+        "doc": "A webhook URL that will be used to trigger an event when an attached camera is turned off.",
+        "doc_gfm": "<p>A webhook URL that will be used to trigger an event when an attached camera is turned off.</p>\n",
+        "file": "/Users/jamescurtin/repos/Spoons/bin/../Source/CameraStatus.spoon/init.lua",
+        "lineno": "65",
+        "name": "cameraOffHook",
+        "signature": "CameraStatus.cameraOffHook (String)",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CameraStatus.cameraOnHook (String)",
+        "def_gfm": "CameraStatus.cameraOnHook (String)",
+        "desc": "A webhook URL that will be used to trigger an event when an attached camera is turned on.",
+        "desc_gfm": "<p>A webhook URL that will be used to trigger an event when an attached camera is turned on.</p>\n",
+        "doc": "A webhook URL that will be used to trigger an event when an attached camera is turned on.",
+        "doc_gfm": "<p>A webhook URL that will be used to trigger an event when an attached camera is turned on.</p>\n",
+        "file": "/Users/jamescurtin/repos/Spoons/bin/../Source/CameraStatus.spoon/init.lua",
+        "lineno": "60",
+        "name": "cameraOnHook",
+        "signature": "CameraStatus.cameraOnHook (String)",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CameraStatus:checkCameraStatus() -> Self",
+        "def_gfm": "CameraStatus:checkCameraStatus() -&gt; Self",
+        "desc": "Makes a one-time call to check camera state.",
+        "desc_gfm": "<p>Makes a one-time call to check camera state.</p>\n",
+        "doc": "Makes a one-time call to check camera state.\n\nParameters:\n * None\n\nReturns:\n * Self\n\nNotes:\nMakes an empty POST request to the \"cameraOnHook\" webhook if any camera is enabled.\nMakes an empty POST request to the \"cameraOffHook\" webhook if no camera is enabled.",
+        "doc_gfm": "<p>Makes a one-time call to check camera state.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>Self</li>\n</ul>\n<p>Notes:\nMakes an empty POST request to the &quot;cameraOnHook&quot; webhook if any camera is enabled.\nMakes an empty POST request to the &quot;cameraOffHook&quot; webhook if no camera is enabled.</p>\n",
+        "examples": [],
+        "file": "/Users/jamescurtin/repos/Spoons/bin/../Source/CameraStatus.spoon/init.lua",
+        "lineno": "95",
+        "name": "checkCameraStatus",
+        "notes": [
+          "Makes an empty POST request to the \"cameraOnHook\" webhook if any camera is enabled.",
+          "Makes an empty POST request to the \"cameraOffHook\" webhook if no camera is enabled."
+        ],
+        "notes_gfm": "<p>Makes an empty POST request to the &quot;cameraOnHook&quot; webhook if any camera is enabled.\nMakes an empty POST request to the &quot;cameraOffHook&quot; webhook if no camera is enabled.</p>\n",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * Self"
+        ],
+        "returns_gfm": "<ul>\n<li>Self</li>\n</ul>\n",
+        "signature": "CameraStatus:checkCameraStatus() -> Self",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "CameraStatus:start() -> Self",
+        "def_gfm": "CameraStatus:start() -&gt; Self",
+        "desc": "Enables the CameraStatus spoon.",
+        "desc_gfm": "<p>Enables the CameraStatus spoon.</p>\n",
+        "doc": "Enables the CameraStatus spoon.\n\nParameters:\n * None\n\nReturns:\n * Self\n\nNotes:\nThe spoon uses a camera watcher to poll for camera status.\nAdditionally, it will register cameras that are added after the spoon has\nbeen initialized.\nCalls the \"On\" webhook if any camera is enabled.\nCalls the \"Off\" webhook if no camera is enabled.",
+        "doc_gfm": "<p>Enables the CameraStatus spoon.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>Self</li>\n</ul>\n<p>Notes:\nThe spoon uses a camera watcher to poll for camera status.\nAdditionally, it will register cameras that are added after the spoon has\nbeen initialized.\nCalls the &quot;On&quot; webhook if any camera is enabled.\nCalls the &quot;Off&quot; webhook if no camera is enabled.</p>\n",
+        "examples": [],
+        "file": "/Users/jamescurtin/repos/Spoons/bin/../Source/CameraStatus.spoon/init.lua",
+        "lineno": "126",
+        "name": "start",
+        "notes": [
+          "The spoon uses a camera watcher to poll for camera status.",
+          "Additionally, it will register cameras that are added after the spoon has",
+          "been initialized.",
+          "Calls the \"On\" webhook if any camera is enabled.",
+          "Calls the \"Off\" webhook if no camera is enabled."
+        ],
+        "notes_gfm": "<p>The spoon uses a camera watcher to poll for camera status.\nAdditionally, it will register cameras that are added after the spoon has\nbeen initialized.\nCalls the &quot;On&quot; webhook if any camera is enabled.\nCalls the &quot;Off&quot; webhook if no camera is enabled.</p>\n",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * Self"
+        ],
+        "returns_gfm": "<ul>\n<li>Self</li>\n</ul>\n",
+        "signature": "CameraStatus:start() -> Self",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "CameraStatus",
+    "stripped_doc": "the computer's camera state.\n\nExample (assumes you are using `SpoonInstall` to load spoons):\n\n```\n-- This plugin requires two webhook URLs (e.g. from HomeAssistant) that will\n-- be triggered based on the computer's camera state.\n\nlocal statusONwebhook = \"https://some-webhook.url/on\"\nlocal statusOFFwebhook = \"https://some-webhook.url/off\"\n\nhs.loadSpoon(\"SpoonInstall\")\nSpoonInstall = spoon.SpoonInstall\nSpoonInstall.repos = {\n    default = {\n        url = \"https://github.com/Hammerspoon/Spoons\",\n        desc = \"Main Hammerspoon Spoon repository\",\n        branch = \"master\",\n    },\n    jamescurtin = {\n        url = \"https://github.com/jamescurtin/Spoons\",\n        desc = \"James Curtin's Spoons\",\n        branch = \"master\",\n    },\n}\n\nSpoonInstaller:andUse(\"CameraStatus\",\n  {\n      repo = \"jamescurtin\",\n      start = true,\n      config = {\n          cameraOnHook = statusONwebhook,\n          cameraOffHook = statusOFFwebhook,\n      }\n  }\n)\n```",
+    "submodules": [],
+    "type": "Module"
+  }
+]

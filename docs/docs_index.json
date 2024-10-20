@@ -1,0 +1,31 @@
+[
+  {
+    "desc": "Trigger webhooks to enable or disable a status light/monitor/etc. based on",
+    "name": "CameraStatus",
+    "type": "Module"
+  },
+  {
+    "desc": "A webhook URL that will be used to trigger an event when an attached camera is turned off.",
+    "module": "CameraStatus",
+    "name": "cameraOffHook",
+    "type": "Variable"
+  },
+  {
+    "desc": "A webhook URL that will be used to trigger an event when an attached camera is turned on.",
+    "module": "CameraStatus",
+    "name": "cameraOnHook",
+    "type": "Variable"
+  },
+  {
+    "desc": "Makes a one-time call to check camera state.",
+    "module": "CameraStatus",
+    "name": "checkCameraStatus",
+    "type": "Method"
+  },
+  {
+    "desc": "Enables the CameraStatus spoon.",
+    "module": "CameraStatus",
+    "name": "start",
+    "type": "Method"
+  }
+]
