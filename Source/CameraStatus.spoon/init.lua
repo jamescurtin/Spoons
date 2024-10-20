@@ -72,20 +72,18 @@ obj.cameraOffHook = nil
 -------------
 
 local function isempty(s)
-    return s == nil or s == ''
+	return s == nil or s == ""
 end
 
 local function stopConfigureAndStartPropertyWatcher(camera)
-    if camera:isPropertyWatcherRunning() then
-        camera:stopPropertyWatcher()
-    end
+	if camera:isPropertyWatcherRunning() then
+		camera:stopPropertyWatcher()
+	end
 
-    camera:setPropertyWatcherCallback(
-        function(_, _, _, _)
-            obj:checkCameraStatus()
-        end
-    )
-    camera:startPropertyWatcher()
+	camera:setPropertyWatcherCallback(function(_, _, _, _)
+		obj:checkCameraStatus()
+	end)
+	camera:startPropertyWatcher()
 end
 
 ------------
@@ -106,20 +104,20 @@ end
 --- Makes an empty POST request to the "cameraOnHook" webhook if any camera is enabled.
 --- Makes an empty POST request to the "cameraOffHook" webhook if no camera is enabled.
 function obj:checkCameraStatus()
-    local anyCameraInUse = false
-    for _, camera in pairs(hs.camera.allCameras()) do
-        if camera:isInUse() then
-            anyCameraInUse = true
-            break
-        end
-    end
+	local anyCameraInUse = false
+	for _, camera in pairs(hs.camera.allCameras()) do
+		if camera:isInUse() then
+			anyCameraInUse = true
+			break
+		end
+	end
 
-    if (anyCameraInUse) then
-        hs.http.post(self.cameraOnHook, nil, nil)
-    else
-        hs.http.post(self.cameraOffHook, nil, nil)
-    end
-    return self
+	if anyCameraInUse then
+		hs.http.post(self.cameraOnHook, nil, nil)
+	else
+		hs.http.post(self.cameraOffHook, nil, nil)
+	end
+	return self
 end
 
 --- CameraStatus:start() -> Self
@@ -139,27 +137,25 @@ end
 --- Calls the "On" webhook if any camera is enabled.
 --- Calls the "Off" webhook if no camera is enabled.
 function obj:start()
-    if isempty(self.cameraOnHook) or isempty(self.cameraOffHook) then
-        hs.alert("CameraStatus could not be configured.")
-    end
+	if isempty(self.cameraOnHook) or isempty(self.cameraOffHook) then
+		hs.alert("CameraStatus could not be configured.")
+	end
 
-    for _, camera in pairs(hs.camera.allCameras()) do
-        stopConfigureAndStartPropertyWatcher(camera)
-    end
+	for _, camera in pairs(hs.camera.allCameras()) do
+		stopConfigureAndStartPropertyWatcher(camera)
+	end
 
-    hs.camera.setWatcherCallback(
-        function(camera, state)
-            if state == "Added" then
-                stopConfigureAndStartPropertyWatcher(camera)
-            end
-            self:checkCameraStatus()
-        end
-    )
-    hs.camera.startWatcher()
+	hs.camera.setWatcherCallback(function(camera, state)
+		if state == "Added" then
+			stopConfigureAndStartPropertyWatcher(camera)
+		end
+		self:checkCameraStatus()
+	end)
+	hs.camera.startWatcher()
 
-    -- check camera status on startup to make sure they are on
-    self:checkCameraStatus()
-    return self
+	-- check camera status on startup to make sure they are on
+	self:checkCameraStatus()
+	return self
 end
 
 return obj
