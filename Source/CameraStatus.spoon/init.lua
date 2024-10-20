@@ -112,7 +112,6 @@ function obj:checkCameraStatus()
             anyCameraInUse = true
             break
         end
-        return self
     end
 
     if (anyCameraInUse) then
