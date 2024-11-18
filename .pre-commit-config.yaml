@@ -35,7 +35,7 @@ repos:
       - id: typos
         exclude: '^docs\/|docs\.json$'
   - repo: https://github.com/JohnnyMorganz/StyLua
-    rev: v2.0.0
+    rev: v2.0.1
     hooks:
       - id: stylua-github
   - repo: https://github.com/mrtazz/checkmake.git
