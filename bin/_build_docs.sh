@@ -9,6 +9,8 @@ source "${SCRIPT_DIR}/_find_hammerspoon.sh"
 # shellcheck source=/dev/null
 source "${ROOT_DIR}/venv/bin/activate"
 
+# Ensure a fresh temporary docs directory so copies never fail due to leftover files
+rm -rf "${ROOT_DIR}/.docs_tmp"
 mkdir -p "${ROOT_DIR}/.docs_tmp"
 
 spoons=( "$ROOT_DIR"/Source/*/ )
@@ -31,7 +33,12 @@ python "${HAMMERSPOON_PATH}/scripts/docs/bin/build_docs.py" \
     --standalone --json --html --validate \
     "Source"
 
-cp "${HAMMERSPOON_PATH}/scripts/docs/templates/docs.css" "${ROOT_DIR}/.docs_tmp/html/"
-cp "${HAMMERSPOON_PATH}/scripts/docs/templates/jquery.js" "${ROOT_DIR}/.docs_tmp/html/"
-cp "${ROOT_DIR}"/.docs_tmp/html/* "${ROOT_DIR}/docs/"
-cp "${ROOT_DIR}"/.docs_tmp/docs{,_index}.json "${ROOT_DIR}/docs/"
+# Ensure html dir exists, then copy template assets, forcing overwrite if present
+mkdir -p "${ROOT_DIR}/.docs_tmp/html"
+cp -f "${HAMMERSPOON_PATH}/scripts/docs/templates/docs.css" "${ROOT_DIR}/.docs_tmp/html/"
+cp -f "${HAMMERSPOON_PATH}/scripts/docs/templates/jquery.js" "${ROOT_DIR}/.docs_tmp/html/"
+
+# Ensure destination docs dir exists, then copy artifacts
+mkdir -p "${ROOT_DIR}/docs"
+cp -a "${ROOT_DIR}"/.docs_tmp/html/* "${ROOT_DIR}/docs/"
+cp -a "${ROOT_DIR}"/.docs_tmp/docs{,_index}.json "${ROOT_DIR}/docs/"
