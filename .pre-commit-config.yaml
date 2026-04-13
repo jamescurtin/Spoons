@@ -39,6 +39,6 @@ repos:
     hooks:
       - id: stylua-github
   - repo: https://github.com/mrtazz/checkmake.git
-    rev: 0.2.2
+    rev: v0.3.2
     hooks:
       - id: checkmake
