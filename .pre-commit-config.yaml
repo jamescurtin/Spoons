@@ -5,6 +5,12 @@ repos:
         name: Publish docs and zipped spoons
         entry: bin/publish.sh
         language: system
+        # The hook builds shared output dirs (.docs_tmp, docs, Spoons) and
+        # ignores its filename args. Without pass_filenames: false, pre-commit
+        # splits --all-files into batches and runs the hook concurrently, and
+        # those parallel runs race on those dirs (FileExistsError in build_docs).
+        pass_filenames: false
+        always_run: true
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
     hooks:
