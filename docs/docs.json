@@ -156,5 +156,167 @@
     "stripped_doc": "the computer's camera state.\n\nExample (assumes you are using `SpoonInstall` to load spoons):\n\n```\n-- This plugin requires two webhook URLs (e.g. from HomeAssistant) that will\n-- be triggered based on the computer's camera state.\n\nlocal statusONwebhook = \"https://some-webhook.url/on\"\nlocal statusOFFwebhook = \"https://some-webhook.url/off\"\n\nhs.loadSpoon(\"SpoonInstall\")\nSpoonInstall = spoon.SpoonInstall\nSpoonInstall.repos = {\n    default = {\n        url = \"https://github.com/Hammerspoon/Spoons\",\n        desc = \"Main Hammerspoon Spoon repository\",\n        branch = \"master\",\n    },\n    jamescurtin = {\n        url = \"https://github.com/jamescurtin/Spoons\",\n        desc = \"James Curtin's Spoons\",\n        branch = \"master\",\n    },\n}\n\nSpoonInstaller:andUse(\"CameraStatus\",\n  {\n      repo = \"jamescurtin\",\n      start = true,\n      config = {\n          cameraOnHook = statusONwebhook,\n          cameraOffHook = statusOFFwebhook,\n      }\n  }\n)\n```",
     "submodules": [],
     "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "ChromeVerticalTabs:start() -> Self",
+        "desc": "Binds the hotkey to toggle Chrome's vertical tabs sidebar.",
+        "doc": "Binds the hotkey to toggle Chrome's vertical tabs sidebar.\n\nParameters:\n * None\n\nReturns:\n * Self",
+        "examples": [],
+        "file": "Source/ChromeVerticalTabs.spoon/init.lua",
+        "lineno": "127",
+        "name": "start",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * Self"
+        ],
+        "signature": "ChromeVerticalTabs:start() -> Self",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ChromeVerticalTabs:stop() -> Self",
+        "desc": "Unbinds the hotkey.",
+        "doc": "Unbinds the hotkey.\n\nParameters:\n * None\n\nReturns:\n * Self",
+        "examples": [],
+        "file": "Source/ChromeVerticalTabs.spoon/init.lua",
+        "lineno": "143",
+        "name": "stop",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * Self"
+        ],
+        "signature": "ChromeVerticalTabs:stop() -> Self",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ChromeVerticalTabs:toggle() -> Self",
+        "desc": "Toggles Chrome's vertical tabs sidebar.",
+        "doc": "Toggles Chrome's vertical tabs sidebar.\n\nParameters:\n * None\n\nReturns:\n * Self\n\nNotes:\nFinds the Expand/Collapse tabs button in Chrome's accessibility tree and presses it.\nShows an alert if Chrome is not running or the button cannot be found.",
+        "examples": [],
+        "file": "Source/ChromeVerticalTabs.spoon/init.lua",
+        "lineno": "109",
+        "name": "toggle",
+        "notes": [
+          "Finds the Expand/Collapse tabs button in Chrome's accessibility tree and presses it.",
+          "Shows an alert if Chrome is not running or the button cannot be found."
+        ],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * Self"
+        ],
+        "signature": "ChromeVerticalTabs:toggle() -> Self",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "ChromeVerticalTabs.hotkey (Table)",
+        "desc": "A table containing the hotkey modifiers and key to bind.",
+        "doc": "A table containing the hotkey modifiers and key to bind.\nDefault is {{\"cmd\", \"ctrl\"}, \"s\"}.",
+        "file": "Source/ChromeVerticalTabs.spoon/init.lua",
+        "lineno": "54",
+        "name": "hotkey",
+        "signature": "ChromeVerticalTabs.hotkey (Table)",
+        "stripped_doc": "Default is {{\"cmd\", \"ctrl\"}, \"s\"}.",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Toggle Chrome's vertical tabs sidebar with a keyboard shortcut.",
+    "doc": "Toggle Chrome's vertical tabs sidebar with a keyboard shortcut.\nUses the macOS accessibility API to find and press the Expand/Collapse\ntabs button in Chrome's UI.\n\nExample:\n\n```\nhs.loadSpoon(\"SpoonInstall\")\nSpoonInstall = spoon.SpoonInstall\nSpoonInstall.repos = {\n    default = {\n        url = \"https://github.com/Hammerspoon/Spoons\",\n        desc = \"Main Hammerspoon Spoon repository\",\n        branch = \"master\",\n    },\n    jamescurtin = {\n        url = \"https://github.com/jamescurtin/Spoons\",\n        desc = \"James Curtin's Spoons\",\n        branch = \"master\",\n    },\n}\n\nSpoonInstaller:andUse(\"ChromeVerticalTabs\",\n  {\n      repo = \"jamescurtin\",\n      start = true,\n      config = {\n          hotkey = {{\"cmd\", \"ctrl\"}, \"s\"},\n      }\n  }\n)\n```",
+    "items": [
+      {
+        "def": "ChromeVerticalTabs.hotkey (Table)",
+        "desc": "A table containing the hotkey modifiers and key to bind.",
+        "doc": "A table containing the hotkey modifiers and key to bind.\nDefault is {{\"cmd\", \"ctrl\"}, \"s\"}.",
+        "file": "Source/ChromeVerticalTabs.spoon/init.lua",
+        "lineno": "54",
+        "name": "hotkey",
+        "signature": "ChromeVerticalTabs.hotkey (Table)",
+        "stripped_doc": "Default is {{\"cmd\", \"ctrl\"}, \"s\"}.",
+        "type": "Variable"
+      },
+      {
+        "def": "ChromeVerticalTabs:start() -> Self",
+        "desc": "Binds the hotkey to toggle Chrome's vertical tabs sidebar.",
+        "doc": "Binds the hotkey to toggle Chrome's vertical tabs sidebar.\n\nParameters:\n * None\n\nReturns:\n * Self",
+        "examples": [],
+        "file": "Source/ChromeVerticalTabs.spoon/init.lua",
+        "lineno": "127",
+        "name": "start",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * Self"
+        ],
+        "signature": "ChromeVerticalTabs:start() -> Self",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ChromeVerticalTabs:stop() -> Self",
+        "desc": "Unbinds the hotkey.",
+        "doc": "Unbinds the hotkey.\n\nParameters:\n * None\n\nReturns:\n * Self",
+        "examples": [],
+        "file": "Source/ChromeVerticalTabs.spoon/init.lua",
+        "lineno": "143",
+        "name": "stop",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * Self"
+        ],
+        "signature": "ChromeVerticalTabs:stop() -> Self",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ChromeVerticalTabs:toggle() -> Self",
+        "desc": "Toggles Chrome's vertical tabs sidebar.",
+        "doc": "Toggles Chrome's vertical tabs sidebar.\n\nParameters:\n * None\n\nReturns:\n * Self\n\nNotes:\nFinds the Expand/Collapse tabs button in Chrome's accessibility tree and presses it.\nShows an alert if Chrome is not running or the button cannot be found.",
+        "examples": [],
+        "file": "Source/ChromeVerticalTabs.spoon/init.lua",
+        "lineno": "109",
+        "name": "toggle",
+        "notes": [
+          "Finds the Expand/Collapse tabs button in Chrome's accessibility tree and presses it.",
+          "Shows an alert if Chrome is not running or the button cannot be found."
+        ],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * Self"
+        ],
+        "signature": "ChromeVerticalTabs:toggle() -> Self",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "ChromeVerticalTabs",
+    "stripped_doc": "Uses the macOS accessibility API to find and press the Expand/Collapse\ntabs button in Chrome's UI.\n\nExample:\n\n```\nhs.loadSpoon(\"SpoonInstall\")\nSpoonInstall = spoon.SpoonInstall\nSpoonInstall.repos = {\n    default = {\n        url = \"https://github.com/Hammerspoon/Spoons\",\n        desc = \"Main Hammerspoon Spoon repository\",\n        branch = \"master\",\n    },\n    jamescurtin = {\n        url = \"https://github.com/jamescurtin/Spoons\",\n        desc = \"James Curtin's Spoons\",\n        branch = \"master\",\n    },\n}\n\nSpoonInstaller:andUse(\"ChromeVerticalTabs\",\n  {\n      repo = \"jamescurtin\",\n      start = true,\n      config = {\n          hotkey = {{\"cmd\", \"ctrl\"}, \"s\"},\n      }\n  }\n)\n```",
+    "submodules": [],
+    "type": "Module"
   }
 ]
