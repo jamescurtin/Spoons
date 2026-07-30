@@ -27,5 +27,34 @@
     "module": "CameraStatus",
     "name": "start",
     "type": "Method"
+  },
+  {
+    "desc": "Toggle Chrome's vertical tabs sidebar with a keyboard shortcut.",
+    "name": "ChromeVerticalTabs",
+    "type": "Module"
+  },
+  {
+    "desc": "A table containing the hotkey modifiers and key to bind.",
+    "module": "ChromeVerticalTabs",
+    "name": "hotkey",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds the hotkey to toggle Chrome's vertical tabs sidebar.",
+    "module": "ChromeVerticalTabs",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Unbinds the hotkey.",
+    "module": "ChromeVerticalTabs",
+    "name": "stop",
+    "type": "Method"
+  },
+  {
+    "desc": "Toggles Chrome's vertical tabs sidebar.",
+    "module": "ChromeVerticalTabs",
+    "name": "toggle",
+    "type": "Method"
   }
 ]
