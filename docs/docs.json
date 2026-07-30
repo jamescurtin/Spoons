@@ -171,7 +171,7 @@
         "doc": "Binds the hotkey to toggle Chrome's vertical tabs sidebar.\n\nParameters:\n * None\n\nReturns:\n * Self",
         "examples": [],
         "file": "Source/ChromeVerticalTabs.spoon/init.lua",
-        "lineno": "127",
+        "lineno": "133",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -190,7 +190,7 @@
         "doc": "Unbinds the hotkey.\n\nParameters:\n * None\n\nReturns:\n * Self",
         "examples": [],
         "file": "Source/ChromeVerticalTabs.spoon/init.lua",
-        "lineno": "143",
+        "lineno": "149",
         "name": "stop",
         "notes": [],
         "parameters": [
@@ -209,7 +209,7 @@
         "doc": "Toggles Chrome's vertical tabs sidebar.\n\nParameters:\n * None\n\nReturns:\n * Self\n\nNotes:\nFinds the Expand/Collapse tabs button in Chrome's accessibility tree and presses it.\nShows an alert if Chrome is not running or the button cannot be found.",
         "examples": [],
         "file": "Source/ChromeVerticalTabs.spoon/init.lua",
-        "lineno": "109",
+        "lineno": "115",
         "name": "toggle",
         "notes": [
           "Finds the Expand/Collapse tabs button in Chrome's accessibility tree and presses it.",
@@ -259,7 +259,7 @@
         "doc": "Binds the hotkey to toggle Chrome's vertical tabs sidebar.\n\nParameters:\n * None\n\nReturns:\n * Self",
         "examples": [],
         "file": "Source/ChromeVerticalTabs.spoon/init.lua",
-        "lineno": "127",
+        "lineno": "133",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -278,7 +278,7 @@
         "doc": "Unbinds the hotkey.\n\nParameters:\n * None\n\nReturns:\n * Self",
         "examples": [],
         "file": "Source/ChromeVerticalTabs.spoon/init.lua",
-        "lineno": "143",
+        "lineno": "149",
         "name": "stop",
         "notes": [],
         "parameters": [
@@ -297,7 +297,7 @@
         "doc": "Toggles Chrome's vertical tabs sidebar.\n\nParameters:\n * None\n\nReturns:\n * Self\n\nNotes:\nFinds the Expand/Collapse tabs button in Chrome's accessibility tree and presses it.\nShows an alert if Chrome is not running or the button cannot be found.",
         "examples": [],
         "file": "Source/ChromeVerticalTabs.spoon/init.lua",
-        "lineno": "109",
+        "lineno": "115",
         "name": "toggle",
         "notes": [
           "Finds the Expand/Collapse tabs button in Chrome's accessibility tree and presses it.",

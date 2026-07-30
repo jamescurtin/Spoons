@@ -55,27 +55,33 @@ obj.homepage = "https://github.com/jamescurtin/Spoons"
 --- Variable
 --- A table containing the hotkey modifiers and key to bind.
 --- Default is {{"cmd", "ctrl"}, "s"}.
-obj.hotkey = {{"cmd", "ctrl"}, "s"}
+obj.hotkey = { { "cmd", "ctrl" }, "s" }
 
 -------------
 -- Private --
 -------------
 
 local function findButton(el, depth)
-	if depth > 10 then return nil end
+	if depth > 10 then
+		return nil
+	end
 	local role = el:attributeValue("AXRole") or ""
 	local title = el:attributeValue("AXTitle") or ""
 	local desc = el:attributeValue("AXDescription") or ""
 	local targets = {
-		["Expand tabs"] = true, ["Collapse tabs"] = true,
-		["Expand Tabs"] = true, ["Collapse Tabs"] = true,
+		["Expand tabs"] = true,
+		["Collapse tabs"] = true,
+		["Expand Tabs"] = true,
+		["Collapse Tabs"] = true,
 	}
 	if role == "AXButton" and (targets[title] or targets[desc]) then
 		return el
 	end
 	for _, child in ipairs(el:attributeValue("AXChildren") or {}) do
 		local found = findButton(child, depth + 1)
-		if found then return found end
+		if found then
+			return found
+		end
 	end
 	return nil
 end
